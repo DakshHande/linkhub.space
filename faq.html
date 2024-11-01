@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - LinkHub</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #2e8b57;
+            color: white;
+            padding: 20px;
+            border: 2px solid #000;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        nav {
+            background-color: #4682b4;
+            padding: 10px;
+            border: 1px solid #000;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        nav a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        #faq-content {
+            padding: 20px;
+            margin: 20px;
+            background-color: #ffffff;
+            border: 1px solid #000;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+            text-align: left;
+            max-width: 800px;
+            margin: auto;
+            position: relative; /* Ensure positioning for absolute children */
+        }
+        h2 {
+            color: #2e8b57;
+        }
+        .question {
+            font-weight: bold;
+            color: #4682b4;
+        }
+        .answer {
+            margin-bottom: 20px;
+            padding-left: 15px;
+        }
+        .sidebar {
+            position: absolute;
+            width: 150px; /* Adjust width as needed */
+            background-color: #f9f9f9; /* Light background for contrast */
+            border: 1px solid #000;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+        .sidebar.left {
+            left: -160px; /* Position to the left */
+            top: 100px; /* Adjust top position to align with content */
+            height: calc(100% - 120px); /* Fill height minus header/footer */
+        }
+        .sidebar.right {
+            right: -160px; /* Position to the right */
+            top: 100px; /* Adjust top position to align with content */
+            height: calc(100% - 120px); /* Fill height minus header/footer */
+        }
+        .sidebar img {
+            width: 100%; /* Responsive image width */
+            height: auto; /* Maintain aspect ratio */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>LinkHub</h1>
+    <p>Your Gateway to the Internet</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+</nav>
+
+<div id="faq-content">
+    <h2>Frequently Asked Questions (FAQ)</h2>
+    
+    <div class="question">Q: What is LinkHub?</div>
+    <div class="answer">A: LinkHub is an online portal that provides easy access to popular websites and resources. It is designed to simplify navigation across various websites and services by offering a single platform where you can quickly find and access your favorite online destinations.</div>
+
+    <div class="question">Q: Is LinkHub a project or a commercial platform?</div>
+    <div class="answer">A: LinkHub is not a student project; it is a fully functional online platform. The site is maintained as an operational service with consistent content updates and features to make it useful for a wide audience.</div>
+
+    <div class="question">Q: How does LinkHub generate revenue?</div>
+    <div class="answer">A: LinkHub is supported through online advertisements. These ads help maintain the platform and allow us to provide it as a free service to users. We do not require any payment for accessing our features, and ads are our primary source of revenue.</div>
+
+    <div class="question">Q: Why do you restrict certain searches?</div>
+    <div class="answer">A: To maintain a safe and user-friendly environment, certain words and inappropriate content are restricted in the search feature. If banned words or links are detected, the search bar will be disabled for that user, and further access will require manual navigation through our provided links.</div>
+
+    <div class="question">Q: How does the search ban work?</div>
+    <div class="answer">A: If any user tries to search for banned words or inappropriate links, their search bar will immediately disappear, and they will be restricted from using it even after refreshing the page. Instead, users are prompted to use the 'Manual Link' page to access our content. This restriction is managed using local storage in the browser, so the ban applies only to the specific browser and device used.</div>
+
+    <div class="question">Q: What kind of searches are allowed on LinkHub?</div>
+    <div class="answer">A: We encourage users to search for popular and useful websites related to education, social media, shopping, entertainment, and news. Please avoid any language or content that is inappropriate, vulgar, or includes direct links or URLs, as these will trigger the ban feature.</div>
+
+    <div class="question">Q: Why are certain topics restricted from being discussed?</div>
+    <div class="answer">A: LinkHub is designed to be a general-purpose resource platform, and as such, we prioritize safe and respectful use. Topics that could disrupt this environment or that involve sensitive, controversial, or harmful content are restricted.</div>
+
+    <div class="question">Q: Can I request new websites or features?</div>
+    <div class="answer">A: While we welcome suggestions, we may not be able to fulfill all requests due to the site's purpose and design. Please reach out through the Contact page for any inquiries or feedback.</div>
+
+    <div class="question">Q: What is the main concept behind LinkHub?</div>
+    <div class="answer">A: The main concept behind LinkHub is convenience and accessibility. Our platform aims to be a quick-access hub where users can find and reach their favorite websites without needing to type URLs directly. We focus on ease of use, clear navigation, and reliable performance.</div>
+
+    <div class="question">Q: Can I ask questions about the development or coding of LinkHub?</div>
+    <div class="answer">A: Our development and coding practices are not open for discussion or disclosure. LinkHub is a fully developed site, and we do not provide information about the technical aspects or backend processes involved.</div>
+
+    <p>If you have further questions, please visit our <a href="contact.html">Contact</a> page.</p>
+</div>
+
+<!-- Left Sidebar -->
+<div class="sidebar left">
+    <img src="placeholder-image.jpg" alt="Ad Placeholder">
+</div>
+
+<!-- Right Sidebar -->
+<div class="sidebar right">
+    <img src="placeholder-image.jpg" alt="Ad Placeholder">
+</div>
+
+<footer>
+    <p>&copy; 2024 LinkHub. All Rights Reserved.</p>
+    <p><a href="terms.html">Terms and Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
+</footer>
+
+</body>
+</html>

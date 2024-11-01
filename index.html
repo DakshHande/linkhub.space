@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkHub - Your Gateway to the Internet</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #2e8b57;
+            color: white;
+            padding: 20px;
+            border: 2px solid #000;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        nav {
+            background-color: #4682b4;
+            padding: 10px;
+            border: 1px solid #000;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        nav a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        #container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+        }
+        #left-sidebar, #right-sidebar {
+            width: 20%;
+            background-color: #e0ffff;
+            padding: 10px;
+            border: 1px solid #000;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+        #main-content {
+            width: 55%;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #000;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+        footer {
+            text-align: center;
+            margin: 20px;
+            font-size: 0.9em;
+        }
+        input[type="text"] {
+            width: 90%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 2px solid #000;
+        }
+        .ban-message {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>LinkHub</h1>
+    <p>Your Gateway to the Internet</p>
+</header>
+
+<nav>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="manual.html">Manual Link</a>
+    <a href="faq.html">F.A.Q</a>
+    <a href="adpolicy.html">Ad Monetization Policy</a>
+    <a href="masthead.html">Masthead</a>
+</nav>
+
+<div id="container">
+    <div id="left-sidebar">
+        <h3>Popular Links</h3>
+        <ul>
+            <li><a href="https://www.google.com">Google</a></li>
+            <li><a href="https://www.youtube.com">YouTube</a></li>
+            <li><a href="https://www.facebook.com">Facebook</a></li>
+            <li><a href="https://www.wikipedia.org">Wikipedia</a></li>
+        </ul>
+    </div>
+
+    <div id="main-content">
+        <h2>Search for Your Favorite Websites</h2>
+        <p>Use the search bar below to quickly access popular websites. Avoid inappropriate language and refrain from typing or linking any external URLs.</p>
+        <p><strong>Note:</strong> Violation of usage rules will result in an automatic ban, disabling your access to the search bar. Persistent attempts may lead to permanent restriction. For more details, refer to our <a href="manual.html">Manual Link page</a> and <a href="faq.html">FAQ</a>.</p>
+        <div id="searchContainer">
+            <input type="text" id="searchInput" placeholder="Enter website name..." />
+            <button onclick="searchWebsite()">Search</button>
+            <div id="results"></div>
+        </div>
+    </div>
+
+    <div id="right-sidebar">
+        <h3>Widely Used Websites</h3>
+        <ul>
+            <li><a href="https://www.amazon.com">Amazon</a></li>
+            <li><a href="https://www.reddit.com">Reddit</a></li>
+            <li><a href="https://www.linkedin.com">LinkedIn</a></li>
+            <li><a href="https://www.twitter.com">Twitter</a></li>
+        </ul>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 LinkHub. All Rights Reserved.</p>
+    <p><a href="terms.html">Terms and Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
+</footer>
+
+<script>
+    const bannedWords = ['porn', 'sex', 'adult', 'nude', 'f*ck', 'sh*t', 'b*tch', 'link', 'http', 'https', 'www'];
+    const bannedIPsKey = 'bannedIPs';
+    const userIP = '192.168.1.1'; // Static IP for demo; use real IP-fetching code in production.
+    const searchBar = document.getElementById('searchContainer');
+
+    // List of top 60 websites for redirection
+    const websites = {
+        'google': 'https://www.google.com',
+        'youtube': 'https://www.youtube.com',
+        'facebook': 'https://www.facebook.com',
+        'twitter': 'https://www.twitter.com',
+        'instagram': 'https://www.instagram.com',
+        'amazon': 'https://www.amazon.com',
+        'reddit': 'https://www.reddit.com',
+        'wikipedia': 'https://www.wikipedia.org',
+        'linkedin': 'https://www.linkedin.com',
+        'netflix': 'https://www.netflix.com',
+        'ebay': 'https://www.ebay.com',
+        'pinterest': 'https://www.pinterest.com',
+        'tumblr': 'https://www.tumblr.com',
+        'tiktok': 'https://www.tiktok.com',
+        'whatsapp': 'https://www.whatsapp.com',
+        'bing': 'https://www.bing.com',
+        'yahoo': 'https://www.yahoo.com',
+        'quora': 'https://www.quora.com',
+        'office': 'https://www.office.com',
+        'salesforce': 'https://www.salesforce.com',
+        'dropbox': 'https://www.dropbox.com',
+        'paypal': 'https://www.paypal.com',
+        'slack': 'https://www.slack.com',
+        'airbnb': 'https://www.airbnb.com',
+        'zoom': 'https://www.zoom.us',
+        'news': 'https://news.google.com',
+        'bbc': 'https://www.bbc.com',
+        'cnn': 'https://www.cnn.com',
+        'forbes': 'https://www.forbes.com',
+        'huffpost': 'https://www.huffpost.com',
+        'nytimes': 'https://www.nytimes.com',
+        'stackoverflow': 'https://stackoverflow.com',
+        'codepen': 'https://codepen.io',
+        'github': 'https://github.com',
+        'bitbucket': 'https://bitbucket.org',
+        'yelp': 'https://www.yelp.com',
+        'duckduckgo': 'https://www.duckduckgo.com',
+        'imgur': 'https://imgur.com',
+        'microsoft': 'https://www.microsoft.com',
+        'apple': 'https://www.apple.com',
+        'weather': 'https://www.weather.com',
+        'spotify': 'https://www.spotify.com',
+        'wordpress': 'https://www.wordpress.com',
+        'booking': 'https://www.booking.com',
+        'medium': 'https://medium.com',
+        'udemy': 'https://www.udemy.com',
+        'coursera': 'https://www.coursera.org',
+        'vimeo': 'https://vimeo.com',
+        'dailymotion': 'https://www.dailymotion.com',
+        'dribbble': 'https://dribbble.com',
+        'behance': 'https://www.behance.net',
+        'kickstarter': 'https://www.kickstarter.com',
+        'patreon': 'https://www.patreon.com',
+        'zoominfo': 'https://www.zoominfo.com',
+        'glassdoor': 'https://www.glassdoor.com',
+        'adobe': 'https://www.adobe.com',
+        'bbcnews': 'https://www.bbc.co.uk/news',
+        'nytimes': 'https://www.nytimes.com',
+        'espn': 'https://www.espn.com',
+        'rottentomatoes': 'https://www.rottentomatoes.com',
+        'tripadvisor': 'https://www.tripadvisor.com'
+    };
+
+    // Ban check & enforcement
+    const bannedIPs = JSON.parse(localStorage.getItem(bannedIPsKey)) || [];
+    if (bannedIPs.includes(userIP)) {
+        searchBar.innerHTML = '<p class="ban-message">You are banned from using the search feature.</p>';
+    }
+
+    // Core search functionality
+    function searchWebsite() {
+        const query = document.getElementById('searchInput').value.trim().toLowerCase();
+
+        if (bannedWords.some(word => query.includes(word))) {
+            bannedIPs.push(userIP);
+            localStorage.setItem(bannedIPsKey, JSON.stringify(bannedIPs));
+            searchBar.innerHTML = '<p class="ban-message">You are banned from using the search feature.</p>';
+            return;
+        }
+
+        const url = websites[query];
+        if (url) {
+            window.open(url, '_blank');
+        } else {
+            document.getElementById('results').innerText = "Website not found. Try another name.";
+        }
+    }
+</script>
+
+</body>
+</html>
